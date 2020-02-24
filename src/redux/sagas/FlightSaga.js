@@ -2,31 +2,37 @@ import { takeLeading, put } from 'redux-saga/effects';
 import { ActionType } from '../../constants';
 import { FlightAction } from '../action_creators';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
+const data = [{
+  "departure": "Ankara", "arrival": "Antalya", "departureDateTime": 1561627856.000000000,
+  "arrivalDateTime": 1564410656.000000000
+}, {
+  "departure": "Cruz del Eje", "arrival": "Tizi", "departureDateTime": 1558902656.000000000, "arrivalDateTime":
+    1558902656.000000000
+}, {
+  "departure": "Antalya", "arrival": "Istanbul", "departureDateTime": 1563588000.000000000,
+  "arrivalDateTime": 1563678000.000000000
+}, {
+  "departure": "Tizi", "arrival": "Cruz del Eje", "departureDateTime": 1558902656.000000000,
+  "arrivalDateTime": 1558902656.000000000
+}, {
+  "departure": "Istanbul", "arrival": "Antalya", "departureDateTime": 1563588000.000000000,
+  "arrivalDateTime": 1563678000.000000000
+}, {
+  "departure": "Istanbul", "arrival": "Antalya", "departureDateTime": 1558902656.000000000,
+  "arrivalDateTime": 1558902656.000000000
+}, {
+  "departure": "Istanbul", "arrival": "Antalya", "departureDateTime": 1558902656.000000000,
+  "arrivalDateTime": 1558902656.000000000
+}, {
+  "departure": "Singapore", "arrival": "Istanbul", "departureDateTime": 1563588000.000000000,
+  "arrivalDateTime": 1563678000.000000000
+}];
 
-const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
-];
 
 export function* fetchFlights(action) {
   try {
     // call api
-    const data = rows;
     yield put(FlightAction.onFetchFlightSuccess(data));
   } catch (err) {
     console.log(err);

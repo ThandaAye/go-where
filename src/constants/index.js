@@ -4,6 +4,10 @@ const FlightType = {
   ALL: 'ALL'
 };
 
-export { FlightType };
+const DateTimeFormat = {
+  display: 'MMMM Do YYYY, h:mm a'
+};
+
+export { FlightType, DateTimeFormat };
 export { RouteConfig } from './Config';
 export { default as ActionType } from './ActionType';

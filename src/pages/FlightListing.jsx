@@ -19,7 +19,6 @@ class FlightListing extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (JSON.stringify(prevProps.flights) !== JSON.stringify(this.props.flights)) {
       this.setState({ loading: false });
-      console.log('A: ', this.props.flights);
     }
   }
 

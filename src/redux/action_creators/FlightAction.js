@@ -22,9 +22,9 @@ const FlightAction = {
   }),
   addFlight: (data) => ({
     type: ActionType.ADD_FLIGHT,
-    payload: [
+    payload: {
       data
-    ]
+    }
   })
 };
 

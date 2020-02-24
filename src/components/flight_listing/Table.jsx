@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TableContainer, Table, TableBody, TableRow, TableCell } from "@material-ui/core";
 
 const CustomTable = props => {
@@ -9,22 +9,19 @@ const CustomTable = props => {
       <Table>
         <TableBody>
           {
-            data.map(row => (
-              <TableRow key={row.name}>
+            data.map((row, index) => (
+              <TableRow key={index}>
                 <TableCell>
-                  {row.name}
+                  {row.departure}
                 </TableCell>
                 <TableCell>
-                  {row.calories}
+                  {row.arrival}
                 </TableCell>
                 <TableCell>
-                  {row.fat}
+                  {row.departureDateTime}
                 </TableCell>
                 <TableCell>
-                  {row.carbs}
-                </TableCell>
-                <TableCell>
-                  {row.protein}
+                  {row.arrivalDateTime}
                 </TableCell>
               </TableRow>
             ))
@@ -35,4 +32,4 @@ const CustomTable = props => {
   );
 };
 
-export default CustomTable;
+export default CustomTable;;
