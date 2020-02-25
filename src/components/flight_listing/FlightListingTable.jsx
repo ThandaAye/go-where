@@ -72,16 +72,21 @@ const FlightListingTable = props => {
     setLoading(false);
   };
 
-  const previousData = usePrevious(data);
-
+  const previousFlightData = usePrevious(data);  
   useEffect(() => {
-    if (JSON.stringify(props.flights) !== JSON.stringify(previousData)) {
+    if (JSON.stringify(previousFlightData) !== JSON.stringify(props.flights)) {
       processDataOnLoad();
     }
-  }, [props.flights, previousData, processDataOnLoad]);
+  }, [props.flights, previousFlightData, processDataOnLoad]);
+
+  const previousSortOrder = usePrevious(sortOrder);
+  const previousFilter = usePrevious(filter);
 
   useEffect(() => {
-    processData();
+    if (JSON.stringify(previousSortOrder) !== JSON.stringify(sortOrder) || 
+    JSON.stringify(previousFilter) !== JSON.stringify(filter)) {
+      processData();
+    }
   }, [sortOrder, filter]);
 
   const handleOnPageChange = (event, newPage) => {

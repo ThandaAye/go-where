@@ -29,4 +29,8 @@ const getDesc = (a, b) => {
   return 0;
 };
 
-export { sortArrayOfObjByKey };
+const splitString = (str, keyWord) => {
+  return str.split(keyWord);
+}
+
+export { sortArrayOfObjByKey, splitString };
