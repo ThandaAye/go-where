@@ -1,45 +1,42 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, makeStyles, Button } from '@material-ui/core';
 import { FlightListingTable } from '../components/flight_listing';
-import { connect } from 'react-redux';
-import { FlightAction } from '../redux/action_creators';
-import { FlightType } from '../constants';
+import { Link, useLocation } from 'react-router-dom';
+import { PageHeader } from '../components/common';
+import { Label } from '../constants';
 
-class FlightListing extends React.Component {
 
-  state = {
-    loading: true
-  };
-
-  componentDidMount() {
-    // Currently, just fetch all flights
-    this.props.fetchFlights(FlightType.ALL);
+const styles = makeStyles((theme) => ({
+  root: {
+    padding: theme.spacing(1)
+  },
+  pageHeader: {
+    paddingTop: theme.spacing(2),
+    paddingLeft: theme.spacing(2)
   }
+}));
 
-  componentDidUpdate(prevProps, prevState) {
-    if (JSON.stringify(prevProps.flights) !== JSON.stringify(this.props.flights)) {
-      this.setState({ loading: false });
-    }
-  }
+const FlightListing = props => {
+  const location = useLocation();
+  const { root, pageHeader } = styles();
 
-  render() {
-    return (
-      <>
-        <Paper>
-          <FlightListingTable data={this.props.flights} />
-        </Paper>
-      </>
-    );
-  }
-}
-
-const mapStateToProps = state => ({
-  flights: state.flights.data,
-  flightError: state.flights.error
-});
-
-const mapDispatchToProps = {
-  fetchFlights: FlightAction.fetchFlights
+  return (
+    <>
+      <Paper className={root}>
+        <PageHeader header={'Browse Flights'} style={pageHeader} rightComponent={
+          <Button variant={'outlined'} color={'primary'}
+            component={Link}
+            to={{
+              pathname: '/flight/add',
+              state: { background: location }
+            }}>
+            {Label.ADD_FLIGHT}
+          </Button>
+        } />
+        <FlightListingTable />
+      </Paper>
+    </>
+  );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FlightListing);
+export default FlightListing;

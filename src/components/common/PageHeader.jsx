@@ -1,22 +1,33 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
+import clsx from 'clsx';
 
 const styles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   header: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    textAlign: 'left'
+  },
+  rightComponentStyle: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
   }
 }));
 
 const PageHeader = props => {
-  const { header } = styles();
+  const { root, header, rightComponentStyle } = styles();
   return (
-    <Typography variant="h6" className={header}>
-      {props.header}
-    </Typography>
+    <div className={root}>
+      <Typography variant="h6" className={clsx(header, props.style)}>
+        {props.header}
+      </Typography>
+      {
+
+        props.rightComponent && (<div className={rightComponentStyle}>{props.rightComponent}</div>)
+      }
+    </div>
   );
 };
 

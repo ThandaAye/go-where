@@ -1,13 +1,25 @@
 const FlightType = {
-  CHEAP: 'CHEAP',
-  BUSINESS: 'BUSINESS',
-  ALL: 'ALL'
+  CHEAP: 'Budget',
+  BUSINESS: 'Business',
+  ALL: 'All'
+};
+
+const SortOrderDirection = {
+  ASC: 'asc',
+  DESC: 'desc'
 };
 
 const DateTimeFormat = {
   display: 'MMMM Do YYYY, h:mm a'
 };
 
-export { FlightType, DateTimeFormat };
-export { RouteConfig } from './Config';
+const AsyncStatus = {
+  IDLE: 'IDLE',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR'
+};
+
+export { FlightType, DateTimeFormat, AsyncStatus, SortOrderDirection };
 export { default as ActionType } from './ActionType';
+export { default as Label } from './Label';

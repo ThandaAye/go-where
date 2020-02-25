@@ -1,1 +1,1 @@
-export { default as AddFlightForm } from './AddFlightForm';
+export { default as AddFlightFormModal } from './AddFlightFormModal';

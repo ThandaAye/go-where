@@ -1,1 +1,1 @@
-export { default as FlightListingTable } from './Table';
+export { default as FlightListingTable } from './FlightListingTable';

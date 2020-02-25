@@ -25,6 +25,12 @@ const FlightAction = {
     payload: {
       data
     }
+  }),
+  onAddFlightSuccess: (data) => ({
+    type: ActionType.ADD_FLIGHT_SUCCESS,
+    payload: {
+      data
+    }
   })
 };
 

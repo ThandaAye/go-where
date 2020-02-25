@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import CustomAlert from './CustomAlert';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -15,10 +16,11 @@ const MainContentContainer = props => {
   return (
     <>
       <main className={content}>
+        <CustomAlert />
         {props.children}
       </main>
     </>
   );
 };
 
-export default MainContentContainer;;
+export default MainContentContainer;
