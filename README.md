@@ -1,12 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Flight POC APP
+
 ## Technologies used
 
-React
-React-Router
-React-Hooks
-Redux
-Redux-Saga
-Axios
+React,
+React-Router,
+React-Hooks,
+Redux,
+Redux-Saga,
+Axios,
 Material-UI
 
 ## Available Scripts
