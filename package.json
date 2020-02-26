@@ -25,7 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js' '*.js'",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false ",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
