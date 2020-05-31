@@ -24,9 +24,18 @@ export function* fetchFlights(action) {
     yield put(AlertAction.showAlert(Label.GENERIC_ERROR, false));
   }
 }
+//change here merge
+
+const headers = {
+//   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+// 'Access-Control-Allow-Headers':'content-Type, x-id-token, Origin',
+//   'Access-Control-Allow-Origin': '*',
+  'content-Type': 'application/json',
+  'x-id-token': 'eyJraWQiOiJJd3VwdmlsK1c5TWZudmR3aGdWem1BVkdcL0Q0dDZEaCs5Wit5QnN2aExSZz0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoib1NYWHFDeVpXUldqcWY4dG1xWFdiQSIsInN1YiI6IjA4ODhmNjZjLTY1OWUtNDVjZi1hMjQ5LTdkMzlhMGMwOTdiNiIsImN1c3RvbTpyb2xlcyI6IkFETUlOIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImN1c3RvbTpvcmdhbmlzYXRpb24iOiJUUklOSVRZIiwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoZWFzdC0xX1VKYW5WODhRViIsInBob25lX251bWJlcl92ZXJpZmllZCI6ZmFsc2UsImNvZ25pdG86dXNlcm5hbWUiOiJ0cmFjeTIiLCJhdWQiOiI1czIzYXU5bnJtbmhuaTc3a2E5a2Rkb3JldCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNTg5OTY4NTc5LCJleHAiOjE1ODk5NzIxNzksImlhdCI6MTU4OTk2ODU3OSwiZW1haWwiOiJ0cmFjeS5heWVAc3RhY3MuaW8ifQ.MRwmyOUv_i-JAZbA2mxwzfU2YB5GDl45lZ2IQbJfmWH1Q_2G7LMT-GD-YldfadCkh0MrKyrN-EXEjrNpI2K4DMIL8FtuLs4o2DOOobAPxuJiVhIM41UIVjlRAqjLs55QyFyq0Eptfo8DnKRZCfwRf1_7PgWdZZQKeDARXPzXwasRbJ3RY20Kr7YavF94SEuideygdbcd2J7T-ab7kW4_CvtoXbmjIxzXqWZTZlXIAucMrTiYRVxmVcV3IXnl49R9AIXEaDIy-4QltI3Ux_QpY3VbNq9D1_QGZ_5UkAmlS1OUwmIoPyR2iQso1s-4gvya51WqHd9pb0eEqGf8FTmzDg'
+}
 
 function fetchCheapFlights() {
-  return axios.get('https://tokigames-challenge.herokuapp.com/api/flights/cheap');
+  return axios.post('http://localhost:8080/trinity/org/create', {headers: headers});
 }
 
 function fetchBusinessFlights() {
